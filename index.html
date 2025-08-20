@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOOSII KE NET - Airtel Unlimited Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color-primary: #121212;
+            --bg-color-secondary: #1e1e1e;
+            --card-color: #2c2c2c;
+            --text-color-primary: #e0e0e0;
+            --text-color-secondary: #aaa;
+            --brand-color-blue: #00b0ff;
+            --brand-color-aqua: #00e5ff;
+            --brand-color-green: #4caf50;
+            --brand-color-orange: #ff9800;
+            --whatsapp-color: #25d366;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Global Styles & Resets */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
             margin: 0;
             padding: 0;
-            /* Scanning background effect */
+            animation: scan 20s linear infinite;
             background-image: linear-gradient(
                 to bottom,
                 transparent 0%,
@@ -20,146 +42,192 @@
                 transparent 4%,
                 transparent 100%
             );
-            background-size: 100% 200vh; /* Make the gradient tall enough to scan */
-            animation: scan 20s linear infinite; /* Adjust speed here */
+            background-size: 100% 200vh;
         }
 
-        /* Keyframes for the top-to-bottom scanning animation */
         @keyframes scan {
-            0% {
-                background-position: 0 -100vh;
-            }
-            100% {
-                background-position: 0 100vh;
-            }
+            0% { background-position: 0 -100vh; }
+            100% { background-position: 0 100vh; }
         }
 
-        /* The rest of the existing styles */
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
-        header {
+
+        /* Header & Navigation */
+        .site-header {
             text-align: center;
             padding: 40px 0;
         }
+
         .logo {
             font-size: 2.5em;
             font-weight: bold;
-            color: #00b0ff;
+            color: var(--brand-color-blue);
+            margin: 0;
         }
-        nav {
+
+        .main-nav {
             margin-top: 20px;
         }
-        nav a {
-            color: #e0e0e0;
+
+        .main-nav a {
+            color: var(--text-color-primary);
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
             transition: color 0.3s;
         }
-        nav a:hover {
-            color: #00e5ff;
+
+        .main-nav a:hover {
+            color: var(--brand-color-aqua);
         }
-        .promo-banner {
+
+        .whatsapp-promo {
             background-color: #004d40;
-            padding: 15px;
-            text-align: center;
+            padding: 8px 15px;
             border-radius: 8px;
             margin-top: 20px;
-            font-size: 1.1em;
+            font-size: 0.9em;
+            text-transform: uppercase;
         }
-        .packages-section {
-            margin-top: 40px;
+
+        /* Sections */
+        .packages-section, .support-section {
             padding: 20px;
-            background-color: #1e1e1e;
+            background-color: var(--bg-color-secondary);
             border-radius: 8px;
+            margin-top: 40px;
         }
+
         .section-title {
             text-align: center;
             font-size: 2em;
-            margin-bottom: 20px;
-            color: #00e5ff;
+            margin-bottom: 10px;
+            color: var(--brand-color-aqua);
         }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-color-secondary);
+            margin-bottom: 30px;
+            font-size: 1em;
+        }
+
+        /* Package Cards */
         .package-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             justify-content: center;
         }
+
         .package-card {
-            background-color: #2c2c2c;
+            background-color: var(--card-color);
             border-radius: 8px;
             padding: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 8px var(--shadow-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
+
         .package-card h3 {
             font-size: 1.5em;
             margin: 0 0 10px;
-            color: #00b0ff;
+            color: var(--brand-color-blue);
         }
+
         .price {
             font-size: 2em;
             font-weight: bold;
-            color: #4caf50;
+            color: var(--brand-color-green);
             margin-bottom: 15px;
         }
+
         .features-list {
             list-style: none;
             padding: 0;
             margin: 0 0 20px;
         }
+
         .features-list li {
             margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .features-list li::before {
             content: '✓';
-            color: #4caf50;
+            color: var(--brand-color-green);
             margin-right: 8px;
             font-weight: bold;
         }
-        .buy-buttons a {
+
+        /* Buttons and CTAs */
+        .buy-buttons {
+            width: 100%;
+        }
+
+        .cta-button {
             display: block;
-            background-color: #00b0ff;
-            color: #fff;
             padding: 10px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 10px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, opacity 0.3s;
+            text-align: center;
         }
-        .buy-buttons a:hover {
+
+        .primary-cta {
+            background-color: var(--brand-color-blue);
+            color: #fff;
+        }
+
+        .secondary-cta {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .cta-button:hover:not(.disabled) {
             background-color: #007bb2;
         }
+
+        .cta-button.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .coming-soon {
             font-size: 0.9em;
-            color: #aaa;
+            color: var(--text-color-secondary);
             margin-top: -5px;
             margin-bottom: 5px;
         }
+
         .highlight {
             font-weight: bold;
-            color: #ff9800;
+            color: var(--brand-color-orange);
         }
+
+        /* Support Section */
         .support-section {
             text-align: center;
             padding: 40px 0;
         }
-        .support-section h3 {
+
+        .support-section h2 {
             font-size: 1.5em;
             margin-bottom: 10px;
         }
+
         .whatsapp-link {
-            background-color: #25d366;
+            background-color: var(--whatsapp-color);
             color: #fff;
             padding: 12px 25px;
             border-radius: 50px;
@@ -168,52 +236,53 @@
             display: inline-block;
             transition: background-color 0.3s;
         }
+
         .whatsapp-link:hover {
             background-color: #128c7e;
         }
-        footer {
+
+        /* Footer */
+        .site-footer {
             text-align: center;
             padding: 20px 0;
             border-top: 1px solid #333;
             font-size: 0.9em;
             color: #888;
         }
-        .notification-message {
+
+        .notification-bar {
             background-color: #ffc107;
             color: #333;
             padding: 10px;
             text-align: center;
             font-weight: bold;
-            display: none; /* Initially hidden */
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <div class="notification-message" id="notification">
+    <div class="notification-bar" id="notification-bar">
         </div>
 
-    <header class="container">
-        <div class="logo">TOOSII KE NET</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#packages">Packages</a>
-            <a href="#support">Support</a>
-        </nav>
-        <div class="promo-banner">
-            Join Our WhatsApp Channel for Updates & Exclusive Offers!
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">TOOSII KE NET</h1>
+            <nav class="main-nav">
+                <a href="#packages">Packages</a>
+                <a href="#support">Support</a>
+                <a href="https://wa.me/254748340864" target="_blank" class="whatsapp-promo">WhatsApp Channel</a>
+            </nav>
         </div>
     </header>
 
-    <main>
+    <main class="main-content">
         <section id="packages" class="packages-section container">
             <h2 class="section-title">AIRTEL UNLIMITED DATA PACKAGES</h2>
-            <p style="text-align: center; color: #aaa; margin-bottom: 30px;">
-                Personal File DM • Premium Unlimited Data • Kenya 🇰🇪
-            </p>
+            <p class="section-subtitle">Personal File DM • Premium Unlimited Data • Kenya 🇰🇪</p>
             <div class="package-grid">
-
-                <div class="package-card">
+                
+                <article class="package-card">
                     <h3>1 WEEK</h3>
                     <div class="price">100KSH</div>
                     <ul class="features-list">
@@ -224,15 +293,15 @@
                         <li>Personal File DM</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="package-card">
+                <article class="package-card">
                     <h3>2 WEEKS</h3>
                     <div class="price">180KSH</div>
                     <ul class="features-list">
@@ -243,15 +312,15 @@
                         <li>Personal File DM</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="package-card">
+                <article class="package-card">
                     <h3>3 WEEKS</h3>
                     <div class="price">250KSH</div>
                     <ul class="features-list">
@@ -262,15 +331,15 @@
                         <li>Personal File DM</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="package-card">
+                <article class="package-card">
                     <h3>25 DAYS</h3>
                     <div class="price">250KSH</div>
                     <ul class="features-list">
@@ -281,15 +350,15 @@
                         <li>Personal File DM</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="package-card">
+                <article class="package-card">
                     <h3>1 MONTH</h3>
                     <div class="price">300KSH</div>
                     <ul class="features-list">
@@ -301,15 +370,15 @@
                     </ul>
                     <p class="highlight">Most Popular</p>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="package-card">
+                <article class="package-card">
                     <h3>2 MONTHS</h3>
                     <div class="price">550KSH</div>
                     <ul class="features-list">
@@ -321,29 +390,43 @@
                     </ul>
                     <p class="highlight">Best Value</p>
                     <div class="buy-buttons">
-                        <a href="#">Buy with M-Pesa Integration</a>
-                        <div class="coming-soon">Coming Soon</div>
-                        <a href="#">Send Money via M-Pesa Toolkit</a>
-                        <a href="#">Pay with Stripe</a>
-                        <div class="coming-soon">Coming Soon</div>
+                        <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
-                </div>
+                </article>
 
             </div>
         </section>
 
         <section id="support" class="support-section container">
-            <h3>Need Help?</h3>
+            <h2 class="section-title">Need Help?</h2>
             <p>Our support team is available 24/7 to assist you with any questions or issues.</p>
-            <a href="https://wa.me/YOUR_PHONE_NUMBER" class="whatsapp-link" target="_blank">
+            <a href="https://wa.me/254748340864" class="whatsapp-link" target="_blank">
                 Contact Support on WhatsApp
             </a>
         </section>
     </main>
 
-    <footer>
-        © 2024 TOOSII KE NET. All rights reserved. Premium Airtel Unlimited Data Packages for Kenya 🇰🇪
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 TOOSII KE NET. All rights reserved. Premium Airtel Unlimited Data Packages for Kenya 🇰🇪</p>
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const notificationBar = document.getElementById('notification-bar');
+            const message = "⚠️ Important: Some payment methods are currently unavailable. Please use the 'Purchase on WhatsApp' option.";
+
+            if (message) {
+                notificationBar.textContent = message;
+                notificationBar.style.display = 'block';
+            }
+        });
+    </script>
 
 </body>
 </html>
