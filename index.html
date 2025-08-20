@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOOSII KE NET - Airtel Unlimited Data</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color-primary: #121212;
@@ -20,6 +22,10 @@
             --brand-color-orange: #ff9800;
             --whatsapp-color: #25d366;
             --shadow-color: rgba(0, 0, 0, 0.3);
+            /* Add variables for spacing and breakpoints for better scalability */
+            --spacing-sm: 10px;
+            --spacing-md: 20px;
+            --spacing-lg: 40px;
         }
 
         /* Global Styles & Resets */
@@ -28,7 +34,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Roboto', sans-serif; /* Fallback font is important */
             background-color: var(--bg-color-primary);
             color: var(--text-color-primary);
             margin: 0;
@@ -53,13 +59,13 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: var(--spacing-md);
         }
 
         /* Header & Navigation */
         .site-header {
             text-align: center;
-            padding: 40px 0;
+            padding: var(--spacing-lg) 0;
         }
 
         .logo {
@@ -70,13 +76,13 @@
         }
 
         .main-nav {
-            margin-top: 20px;
+            margin-top: var(--spacing-md);
         }
 
         .main-nav a {
             color: var(--text-color-primary);
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 var(--spacing-sm);
             font-weight: bold;
             transition: color 0.3s;
         }
@@ -96,23 +102,23 @@
 
         /* Sections */
         .packages-section, .support-section {
-            padding: 20px;
+            padding: var(--spacing-md);
             background-color: var(--bg-color-secondary);
             border-radius: 8px;
-            margin-top: 40px;
+            margin-top: var(--spacing-lg);
         }
 
         .section-title {
             text-align: center;
             font-size: 2em;
-            margin-bottom: 10px;
+            margin-bottom: var(--spacing-sm);
             color: var(--brand-color-aqua);
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-color-secondary);
-            margin-bottom: 30px;
+            margin-bottom: var(--spacing-lg);
             font-size: 1em;
         }
 
@@ -120,7 +126,7 @@
         .package-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: var(--spacing-md);
             justify-content: center;
         }
 
@@ -137,7 +143,7 @@
 
         .package-card h3 {
             font-size: 1.5em;
-            margin: 0 0 10px;
+            margin: 0 0 var(--spacing-sm);
             color: var(--brand-color-blue);
         }
 
@@ -151,7 +157,7 @@
         .features-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 20px;
+            margin: 0 0 var(--spacing-md);
         }
 
         .features-list li {
@@ -218,12 +224,12 @@
         /* Support Section */
         .support-section {
             text-align: center;
-            padding: 40px 0;
+            padding: var(--spacing-lg) 0;
         }
 
         .support-section h2 {
             font-size: 1.5em;
-            margin-bottom: 10px;
+            margin-bottom: var(--spacing-sm);
         }
 
         .whatsapp-link {
@@ -244,7 +250,7 @@
         /* Footer */
         .site-footer {
             text-align: center;
-            padding: 20px 0;
+            padding: var(--spacing-md) 0;
             border-top: 1px solid #333;
             font-size: 0.9em;
             color: #888;
@@ -295,7 +301,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
@@ -314,7 +320,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
@@ -333,7 +339,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
@@ -352,7 +358,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
@@ -372,7 +378,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
@@ -392,7 +398,7 @@
                     <div class="buy-buttons">
                         <a href="#" class="cta-button primary-cta disabled">Buy with M-Pesa Integration</a>
                         <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864" class="cta-button primary-cta">Purchase on WhatsApp</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="cta-button primary-cta">Purchase on WhatsApp</a>
                         <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
                         <span class="coming-soon">Coming Soon</span>
                     </div>
