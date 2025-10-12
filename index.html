@@ -7,32 +7,31 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color-primary: #121212;
-            --bg-color-secondary: #1e1e1e;
-            --card-color: #2c2c2c;
-            --text-color-primary: #e0e0e0;
-            --text-color-secondary: #aaa;
-            --brand-color-blue: #00b0ff;
-            --brand-color-blue-light: #add8e6;
-            --brand-color-aqua: #00e5ff;
-            --brand-color-aqua-light: #b0e0e6;
-            --brand-color-green: #4caf50;
-            --brand-color-green-light: #98fb98;
-            --brand-color-orange: #ff9800;
-            --brand-color-orange-light: #ffe4b2;
+            /* Professional Dark Theme Colors */
+            --bg-color-primary: #0a0a0a;
+            --bg-color-secondary: #1a1a1a;
+            --card-color: #222222;
+            --text-color-primary: #f0f0f0;
+            --text-color-secondary: #aaaaaa;
+            
+            /* Corporate/Tech Accent Colors */
+            --brand-color-main: #007bff; /* A standard, professional blue */
+            --brand-color-light: #6aa8e8;
+            --brand-color-success: #28a745;
+            --brand-color-highlight: #ffc107; /* Orange/Yellow for highlights */
+            
             --whatsapp-color: #25d366;
-            --whatsapp-color-light: #90ee90;
-            --shadow-color: rgba(0, 0, 0, 0.2);
-            --spacing-sm: 10px;
-            --spacing-md: 20px;
-            --spacing-lg: 40px;
-            --border-radius: 8px;
-            --transition-duration: 0.2s;
-            --transition-timing: ease-in-out;
+            
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --spacing-sm: 12px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --border-radius: 6px;
+            --transition-duration: 0.25s;
         }
 
         /* Global Styles & Resets */
@@ -41,7 +40,7 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Inter', sans-serif; /* Changed font to Inter for a modern look */
             background-color: var(--bg-color-primary);
             color: var(--text-color-primary);
             margin: 0;
@@ -49,38 +48,12 @@
             background-image: radial-gradient(circle at 50% 50%, var(--bg-color-secondary) 0%, var(--bg-color-primary) 100%);
             background-size: cover;
             background-attachment: fixed;
-            /* Removed animation from body */
         }
 
-        /* New CSS for the overlay screen effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: linear-gradient(
-                to bottom,
-                transparent 0%,
-                rgba(0, 229, 255, 0.1) 2%,
-                rgba(0, 229, 255, 0.2) 3%,
-                transparent 4%,
-                transparent 100%
-            );
-            background-size: 100% 300vh;
-            animation: scan 15s linear infinite;
-            pointer-events: none; /* Allows clicks to pass through to the content */
-            z-index: 999; /* Ensures it's on top of all other content */
-        }
-
-        @keyframes scan {
-            0% { background-position: 0 -200vh; }
-            100% { background-position: 0 100vh; }
-        }
+        /* Removed the 'scan' body::before effect for professionalism */
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: var(--spacing-md);
         }
@@ -89,16 +62,14 @@
         .site-header {
             text-align: center;
             padding: var(--spacing-lg) 0;
-            background-image: linear-gradient(to bottom, rgba(30, 30, 30, 0.95), transparent);
-            padding-bottom: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
+            background-color: rgba(10, 10, 10, 0.95);
+            border-bottom: 1px solid #333;
         }
 
         .logo {
-            font-size: 2.75em;
-            font-weight: bold;
-            color: var(--brand-color-blue);
-            text-shadow: 1px 1px 2px var(--shadow-color);
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--brand-color-main);
             margin: 0;
         }
 
@@ -107,34 +78,17 @@
         }
 
         .main-nav a {
-            color: var(--text-color-primary);
+            color: var(--text-color-secondary);
             text-decoration: none;
             margin: 0 var(--spacing-sm);
-            font-weight: 500;
-            transition: color var(--transition-duration) var(--transition-timing), text-shadow var(--transition-duration) var(--transition-timing);
+            font-weight: 600;
+            transition: color var(--transition-duration);
+            padding-bottom: 4px;
         }
 
         .main-nav a:hover {
-            color: var(--brand-color-aqua-light);
-            text-shadow: 1px 1px 1px var(--brand-color-blue);
-        }
-
-        .whatsapp-promo {
-            background-color: var(--whatsapp-color);
-            color: var(--text-color-primary);
-            padding: var(--spacing-sm) var(--spacing-md);
-            border-radius: 50px;
-            margin-top: var(--spacing-md);
-            font-size: 0.9em;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: background-color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        .whatsapp-promo:hover {
-            background-color: var(--whatsapp-color-light);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: var(--brand-color-main);
+            border-bottom: 2px solid var(--brand-color-main);
         }
 
         /* Sections */
@@ -143,29 +97,22 @@
             background-color: var(--bg-color-secondary);
             border-radius: var(--border-radius);
             margin-top: var(--spacing-lg);
-            box-shadow: 0 4px 8px var(--shadow-color);
-            transition: transform var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
-        }
-
-        .packages-section:hover, .support-section:hover, .community-section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px var(--shadow-color);
+            box-shadow: 0 8px 16px var(--shadow-color);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2em;
+            font-size: 2em;
+            font-weight: 700;
             margin-bottom: var(--spacing-sm);
-            color: var(--brand-color-aqua);
-            text-shadow: 1px 1px 1px var(--shadow-color);
+            color: var(--brand-color-light);
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-color-secondary);
             margin-bottom: var(--spacing-lg);
-            font-size: 1.1em;
-            font-style: italic;
+            font-size: 1em;
         }
 
         /* Package Cards */
@@ -180,153 +127,193 @@
             background-color: var(--card-color);
             border-radius: var(--border-radius);
             padding: 30px;
-            box-shadow: 0 4px 8px var(--shadow-color);
+            box-shadow: 0 4px 12px var(--shadow-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            transition: transform var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
+            border: 1px solid #333; /* Added subtle border */
+            transition: transform var(--transition-duration), box-shadow var(--transition-duration), border-color var(--transition-duration);
         }
 
         .package-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px var(--shadow-color);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px var(--shadow-color);
+            border-color: var(--brand-color-main); /* Highlight border on hover */
         }
 
         .package-card h3 {
-            font-size: 1.75em;
+            font-size: 1.5em;
             margin: 0 0 var(--spacing-sm);
-            color: var(--brand-color-blue-light);
-            text-shadow: 0.5px 0.5px 1px var(--shadow-color);
+            color: var(--brand-color-light);
+            font-weight: 600;
         }
 
         .price {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: var(--brand-color-green);
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 1px var(--shadow-color);
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--brand-color-success);
+            margin-bottom: var(--spacing-md);
         }
 
         .features-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 var(--spacing-lg);
+            margin: 0 0 var(--spacing-md);
+            text-align: left;
         }
 
         .features-list li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            justify-content: center;
             color: var(--text-color-primary);
+            font-size: 0.95em;
         }
 
         .features-list li::before {
             content: '✓';
-            color: var(--brand-color-green-light);
+            color: var(--brand-color-success);
             margin-right: 10px;
             font-weight: bold;
-            text-shadow: 0.5px 0.5px 0.5px var(--shadow-color);
         }
 
         /* Buttons and CTAs */
         .buy-buttons {
             width: 100%;
+            margin-top: auto; /* Push buttons to the bottom of the card */
+            padding-top: var(--spacing-sm);
         }
 
         .cta-button {
             display: block;
             padding: 12px;
-            border-radius: 50px;
+            border-radius: var(--border-radius);
             text-decoration: none;
-            font-weight: bold;
-            margin-bottom: var(--spacing-sm);
-            transition: background-color var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: background-color var(--transition-duration), box-shadow var(--transition-duration), transform var(--transition-duration);
             text-align: center;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .primary-cta {
-            background-color: var(--brand-color-blue);
-            color: #fff;
-        }
-        
-        /* New active style for M-Pesa button */
-        .mpesa-cta {
-            background-color: #00b0ff; /* Keeping the primary color */
+            background-color: var(--brand-color-main);
             color: #fff;
         }
 
-        .mpesa-cta:hover {
-            background-color: #0099e6; /* Slightly darker on hover */
-            opacity: 1; /* Override opacity set in general hover rules if necessary */
+        .primary-cta:hover:not(.disabled) {
+            background-color: #0069d9;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+            transform: translateY(-1px);
         }
         
         .secondary-cta {
-            background-color: #333;
+            background-color: #444;
             color: #fff;
         }
 
-        .community-section .cta-button {
-            background-color: var(--whatsapp-color);
-            color: #fff;
-        }
-
-        .cta-button:hover:not(.disabled), .community-section .cta-button:hover {
-            opacity: 0.9;
+        .secondary-cta:hover:not(.disabled) {
+            background-color: #555;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transform: translateY(-1px);
         }
-
+        
         .cta-button.disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
+            background-color: #333 !important;
             box-shadow: none;
         }
 
         .coming-soon {
-            font-size: 0.85em;
-            color: var(--brand-color-orange-light);
+            font-size: 0.8em;
+            color: var(--text-color-secondary);
             margin-top: -5px;
             margin-bottom: 5px;
             font-style: italic;
+            display: block;
         }
 
         .highlight {
-            font-weight: bold;
-            color: var(--brand-color-orange);
-            text-shadow: 0.5px 0.5px 1px var(--shadow-color);
+            font-weight: 700;
+            color: var(--brand-color-highlight);
+            text-transform: uppercase;
+            font-size: 0.85em;
+            margin-bottom: var(--spacing-sm);
         }
 
         /* Support Section */
         .support-section {
             text-align: center;
-            padding: var(--spacing-lg) 0;
-            background-image: linear-gradient(to bottom, var(--bg-color-secondary) 0%, rgba(30, 30, 30, 0.8) 100%);
+            padding: var(--spacing-lg);
+            background-color: var(--bg-color-primary);
+            border: 1px solid #333;
         }
 
         .support-section h2 {
-            font-size: 1.75em;
+            font-size: 1.5em;
             margin-bottom: var(--spacing-sm);
-            color: var(--brand-color-aqua-light);
-            text-shadow: 0.5px 0.5px 1px var(--shadow-color);
+            color: var(--brand-color-light);
         }
-
+        
+        /* New style for the main CTA in the Support section */
         .whatsapp-link {
             background-color: var(--whatsapp-color);
             color: #fff;
             padding: 14px 30px;
-            border-radius: 50px;
+            border-radius: var(--border-radius);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             display: inline-block;
-            transition: background-color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
+            transition: background-color var(--transition-duration), box-shadow var(--transition-duration), transform var(--transition-duration);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin-top: var(--spacing-sm);
         }
 
         .whatsapp-link:hover {
-            background-color: var(--whatsapp-color-light);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            background-color: #1eaf53;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Community Section */
+        .community-section {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border: 1px solid var(--brand-color-main);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+        }
+
+        .community-section h2 {
+            margin-top: 0;
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .community-section p {
+            font-size: 1em;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.85;
+        }
+
+        .community-section .cta-button {
+            background-color: var(--whatsapp-color);
+            color: #fff;
+            padding: 14px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            display: inline-block;
+            margin-top: var(--spacing-sm);
+        }
+
+        .community-section .cta-button:hover {
+            background-color: #1eaf53;
+            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
+            transform: translateY(-1px);
         }
 
         /* Footer */
@@ -334,58 +321,23 @@
             text-align: center;
             padding: var(--spacing-md) 0;
             border-top: 1px solid #333;
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: var(--text-color-secondary);
-            background-color: rgba(20, 20, 20, 0.8);
+            background-color: var(--bg-color-primary);
         }
 
         .notification-bar {
-            background-color: var(--brand-color-orange);
-            color: var(--bg-color-primary);
-            padding: 12px;
+            background-color: var(--brand-color-highlight);
+            color: #000;
+            padding: 10px;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
             display: none;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Community Section */
-        .community-section {
-            background-color: var(--brand-color-blue);
-            color: #fff;
-            text-align: center;
-            padding: var(--spacing-lg) var(--spacing-md);
-            margin-top: var(--spacing-lg);
-            background-image: linear-gradient(to right, var(--brand-color-blue), var(--brand-color-aqua));
-        }
-
-        .community-section h2 {
-            margin-top: 0;
-            font-size: 2.5em;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        .community-section p {
-            font-size: 1.1em;
-            margin-bottom: var(--spacing-lg);
-            opacity: 0.8;
-        }
-
-        .community-section .cta-button {
-            background-color: var(--whatsapp-color);
-            color: #fff;
-            padding: 14px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            transition: background-color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .community-section .cta-button:hover {
-            background-color: var(--whatsapp-color-light);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--brand-color-highlight);
         }
     </style>
 </head>
@@ -398,125 +350,130 @@
         <div class="container">
             <h1 class="logo">TOOSII KE NET</h1>
             <nav class="main-nav">
-                <a href="#packages">Packages</a>
-                <a href="#support">Support</a>
+                <a href="#packages">Data Packages</a>
+                <a href="#support">Support Center</a>
             </nav>
         </div>
     </header>
 
     <main class="main-content">
         <section id="packages" class="packages-section container">
-            <h2 class="section-title">AIRTEL UNLIMITED DATA PACKAGES</h2>
-            <p class="section-subtitle">Personal File DM • Premium Unlimited Data • Kenya 🇰🇪</p>
+            <h2 class="section-title">PREMIUM AIRTEL DATA PACKAGES</h2>
+            <p class="section-subtitle">Secure, High-Speed Connectivity with Personal File DM Access • Available in Kenya 🇰🇪</p>
             <div class="package-grid">
                 
                 <article class="package-card">
                     <h3>1 WEEK</h3>
-                    <div class="price">100KSH</div>
+                    <div class="price">100 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>7 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20WEEK%20package%20for%20100KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20WEEK%20package%20for%20100KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>2 WEEKS</h3>
-                    <div class="price">180KSH</div>
+                    <div class="price">180 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>14 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20WEEKS%20package%20for%20180KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20WEEKS%20package%20for%20180KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>3 WEEKS</h3>
-                    <div class="price">250KSH</div>
+                    <div class="price">250 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>21 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%203%20WEEKS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%203%20WEEKS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>25 DAYS</h3>
-                    <div class="price">250KSH</div>
+                    <div class="price">250 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>25 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%2025%20DAYS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%2025%20DAYS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>1 MONTH</h3>
-                    <div class="price">300KSH</div>
+                    <div class="price">300 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>30 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
                     </ul>
-                    <p class="highlight">Most Popular</p>
+                    <p class="highlight">MOST POPULAR</p>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20MONTH%20package%20for%20300KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Pay via M-Pesa</a>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20MONTH%20package%20for%20300KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>2 MONTHS</h3>
-                    <div class="price">550KSH</div>
+                    <div class="price">550 KSH</div>
                     <ul class="features-list">
-                        <li>Unlimited Data</li>
+                        <li>Unlimited Data Access</li>
                         <li>60 Days Validity</li>
-                        <li>High Speed</li>
-                        <li>Secure Connection</li>
-                        <li>Personal File DM</li>
-                   </ul>
-                    <p class="highlight">Best Value</p>
+                        <li>High-Speed Bandwidth</li>
+                        <li>Secure Connection Protocol</li>
+                        <li>Dedicated File DM Support</li>
+                    </ul>
+                    <p class="highlight">BEST VALUE</p>
                     <div class="buy-buttons">
-                        <a href="https://payment.intasend.com/pay/88975dbe-4ab2-47c7-a713-4532e521fd53/" class="cta-button mpesa-cta" target="_blank">Buy with M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20MONTHS%20package%20for%20550KSH." class="cta-button primary-cta">Purchase on WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Stripe</a>
-                        <span class="coming-soon">Stripe Coming Soon</span>
+                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
+                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20MONTHS%20package%20for%20550KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
+                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
+                        <span class="coming-soon">Coming Soon</span>
                     </div>
                 </article>
 
@@ -524,34 +481,33 @@
         </section>
 
         <section id="support" class="support-section container">
-            <h2 class="section-title">Need Help?</h2>
-            <p>Our support team is available 24/7 to assist you with any questions or issues.</p>
-            <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages." class="whatsapp-link" target="_blank">
-                Contact Support on WhatsApp
+            <h2>Dedicated Support</h2>
+            <p>Our support team is available 24/7. Reach out for assistance with purchases, setup, or technical issues.</p>
+            <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages%20or%20need%20technical%20support." class="whatsapp-link" target="_blank">
+                Contact Technical Support on WhatsApp
             </a>
         </section>
 
         <section class="community-section">
             <div class="container">
-                <h2>Join Our WhatsApp Community!</h2>
-                <p>Stay updated on the latest packages, offers, and tips.</p>
-                <a href="https://chat.whatsapp.com/Jg2hIgzmr41HpMUoYhDXOj" target="_blank" class="cta-button">Join Now</a>
+                <h2 class="section-title">Join Our Community</h2>
+                <p>Be the first to know about new package releases, exclusive offers, and important service updates by joining our official WhatsApp group.</p>
+                <a href="https://chat.whatsapp.com/Jg2hIgzmr41HpMUoYhDXOj" target="_blank" class="cta-button">Join WhatsApp Group</a>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2024 TOOSII KE NET. All rights reserved. Premium Airtel Unlimited Data Packages for Kenya 🇰🇪</p>
+            <p>&copy; 2024 TOOSII KE NET. All rights reserved. Providing Premium Airtel Unlimited Data Packages for the Kenyan Market 🇰🇪</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const notificationBar = document.getElementById('notification-bar');
-            // The notification bar message is now obsolete as M-Pesa is active, 
-            // but we'll modify it to only mention Stripe.
-            const message = "⚠️ Important: Stripe payment is currently unavailable. Please use the 'Buy with M-Pesa' or 'Purchase on WhatsApp' option.";
+             // Notification message updated to remove Paystack reference
+            const message = "🔔 IMPORTANT: Automated M-Pesa payment is currently available for the 1 MONTH package. All other packages require 'Purchase via WhatsApp'.";
 
             if (message) {
                 notificationBar.textContent = message;
