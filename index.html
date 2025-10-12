@@ -3,44 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOOSII KE NET - Airtel Unlimited Data</title>
+    <title>TOOSII KE NET - Premium Airtel Data</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Professional Dark Theme Colors */
-            --bg-color-primary: #0a0a0a;
-            --bg-color-secondary: #1a1a1a;
-            --card-color: #222222;
-            --text-color-primary: #f0f0f0;
-            --text-color-secondary: #aaaaaa;
+            /* Professional Dark Theme Colors (Deep Navy/Corporate Teal) */
+            --bg-color-primary: #0A192F; /* Deep Navy Blue */
+            --bg-color-secondary: #172A45; /* Medium Navy */
+            --card-color: #1F3652; /* Lighter Navy Card */
+            --text-color-primary: #CCD6F6; /* Lightest Gray/Slate */
+            --text-color-secondary: #8892B0; /* Light Gray/Slate */
+            --border-color: #304C6C;
             
-            /* Corporate/Tech Accent Colors */
-            --brand-color-main: #007bff; /* A standard, professional blue */
-            --brand-color-light: #6aa8e8;
-            --brand-color-success: #28a745;
-            --brand-color-highlight: #ffc107; /* Orange/Yellow for highlights */
+            /* Corporate Accent Colors */
+            --brand-color-main: #00897B; /* Corporate Teal */
+            --brand-color-light: #4DB6AC; 
+            --brand-color-success: #66BB6A; /* Clean green for success/price */
+            --brand-color-highlight: #FFD700; /* Gold/Yellow for high visibility */
             
             --whatsapp-color: #25d366;
             
-            --shadow-color: rgba(0, 0, 0, 0.5);
-            --spacing-sm: 12px;
-            --spacing-md: 24px;
-            --spacing-lg: 48px;
-            --border-radius: 6px;
-            --transition-duration: 0.25s;
+            --shadow-color-dark: rgba(0, 0, 0, 0.9);
+            --shadow-color-light: rgba(0, 0, 0, 0.3);
+            --spacing-sm: 15px;
+            --spacing-md: 30px;
+            --spacing-lg: 60px;
+            --border-radius: 12px; /* Larger, softer corners */
+            --transition-duration: 0.3s;
         }
 
+        /* LIGHT THEME VARIABLES */
+        .light-theme {
+            --bg-color-primary: #F7F9FC; /* Off-White */
+            --bg-color-secondary: #FFFFFF; /* White */
+            --card-color: #FFFFFF; 
+            --text-color-primary: #212529; 
+            --text-color-secondary: #6C757D;
+            --border-color: #E0E3EB;
+            
+            /* Keep accents consistent */
+            --brand-color-main: #00897B; 
+            --brand-color-light: #00897B;
+            --brand-color-success: #28A745;
+            --shadow-color-dark: rgba(0, 0, 0, 0.15); 
+            --shadow-color-light: rgba(0, 0, 0, 0.05);
+        }
+        
         /* Global Styles & Resets */
         *, *::before, *::after {
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Inter', sans-serif; /* Changed font to Inter for a modern look */
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color-primary);
             color: var(--text-color-primary);
             margin: 0;
@@ -48,12 +67,18 @@
             background-image: radial-gradient(circle at 50% 50%, var(--bg-color-secondary) 0%, var(--bg-color-primary) 100%);
             background-size: cover;
             background-attachment: fixed;
+            line-height: 1.6;
+            transition: background-color var(--transition-duration), color var(--transition-duration);
+        }
+        
+        /* Light Theme specific body style adjustment */
+        .light-theme {
+            background-image: none;
+            background-color: var(--bg-color-primary);
         }
 
-        /* Removed the 'scan' body::before effect for professionalism */
-
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: var(--spacing-md);
         }
@@ -61,20 +86,24 @@
         /* Header & Navigation */
         .site-header {
             text-align: center;
-            padding: var(--spacing-lg) 0;
-            background-color: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid #333;
+            padding: var(--spacing-md) 0;
+            background-color: var(--bg-color-primary); 
+            border-bottom: 2px solid var(--border-color); 
+            box-shadow: 0 4px 15px var(--shadow-color-dark);
+            position: relative;
+            transition: all var(--transition-duration);
         }
 
         .logo {
             font-size: 2.5em;
-            font-weight: 700;
+            font-weight: 900;
             color: var(--brand-color-main);
             margin: 0;
+            letter-spacing: 1px;
         }
 
         .main-nav {
-            margin-top: var(--spacing-md);
+            margin-top: var(--spacing-sm);
         }
 
         .main-nav a {
@@ -82,14 +111,42 @@
             text-decoration: none;
             margin: 0 var(--spacing-sm);
             font-weight: 600;
-            transition: color var(--transition-duration);
-            padding-bottom: 4px;
+            transition: color var(--transition-duration), border-bottom var(--transition-duration);
+            padding-bottom: 6px;
+            font-size: 0.95em;
         }
 
         .main-nav a:hover {
-            color: var(--brand-color-main);
+            color: var(--brand-color-light);
             border-bottom: 2px solid var(--brand-color-main);
         }
+
+        /* Theme Toggle Button Styling */
+        .theme-toggle-container {
+            position: absolute;
+            right: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .theme-toggle-button {
+            background-color: var(--card-color);
+            color: var(--text-color-secondary);
+            border: 1px solid var(--border-color);
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all var(--transition-duration);
+            font-size: 0.85em;
+        }
+
+        .theme-toggle-button:hover {
+            background-color: var(--brand-color-main);
+            color: #fff;
+            border-color: var(--brand-color-main);
+        }
+
 
         /* Sections */
         .packages-section, .support-section, .community-section {
@@ -97,28 +154,33 @@
             background-color: var(--bg-color-secondary);
             border-radius: var(--border-radius);
             margin-top: var(--spacing-lg);
-            box-shadow: 0 8px 16px var(--shadow-color);
+            box-shadow: 0 10px 30px var(--shadow-color-dark); 
+            transition: all var(--transition-duration);
         }
 
         .section-title {
             text-align: center;
-            font-size: 2em;
-            font-weight: 700;
+            font-size: 2.2em;
+            font-weight: 900; /* Extra bold for professionalism */
             margin-bottom: var(--spacing-sm);
-            color: var(--brand-color-light);
+            color: var(--text-color-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .section-subtitle {
             text-align: center;
             color: var(--text-color-secondary);
             margin-bottom: var(--spacing-lg);
-            font-size: 1em;
+            font-size: 1.1em;
+            font-weight: 400;
+            line-height: 1.8;
         }
 
         /* Package Cards */
         .package-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--spacing-md);
             justify-content: center;
         }
@@ -126,34 +188,35 @@
         .package-card {
             background-color: var(--card-color);
             border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: 0 4px 12px var(--shadow-color);
+            padding: 40px 30px;
+            box-shadow: 0 6px 20px var(--shadow-color-light);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            border: 1px solid #333; /* Added subtle border */
-            transition: transform var(--transition-duration), box-shadow var(--transition-duration), border-color var(--transition-duration);
+            border: 1px solid var(--border-color); 
+            transition: all var(--transition-duration);
         }
 
         .package-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px var(--shadow-color);
-            border-color: var(--brand-color-main); /* Highlight border on hover */
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 137, 123, 0.4); /* Teal glow effect */
+            border-color: var(--brand-color-main);
         }
 
         .package-card h3 {
-            font-size: 1.5em;
+            font-size: 1.8em;
             margin: 0 0 var(--spacing-sm);
             color: var(--brand-color-light);
-            font-weight: 600;
+            font-weight: 800;
         }
 
         .price {
-            font-size: 2.2em;
-            font-weight: 700;
+            font-size: 2.8em;
+            font-weight: 900;
             color: var(--brand-color-success);
             margin-bottom: var(--spacing-md);
+            letter-spacing: -0.5px;
         }
 
         .features-list {
@@ -161,40 +224,53 @@
             padding: 0;
             margin: 0 0 var(--spacing-md);
             text-align: left;
+            width: 100%;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color); /* Professional separator */
         }
 
         .features-list li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            padding: 5px 0;
             display: flex;
             align-items: center;
             color: var(--text-color-primary);
-            font-size: 0.95em;
+            font-size: 1em;
+            border-bottom: 1px dashed var(--border-color);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
         }
 
         .features-list li::before {
             content: '✓';
-            color: var(--brand-color-success);
-            margin-right: 10px;
+            color: var(--brand-color-main);
+            margin-right: 15px;
             font-weight: bold;
+            font-size: 1.2em;
         }
 
         /* Buttons and CTAs */
         .buy-buttons {
             width: 100%;
-            margin-top: auto; /* Push buttons to the bottom of the card */
+            margin-top: auto;
             padding-top: var(--spacing-sm);
         }
 
         .cta-button {
             display: block;
-            padding: 12px;
-            border-radius: var(--border-radius);
+            padding: 18px;
+            border-radius: 8px; /* Slightly less rounded than the card */
             text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 10px;
-            transition: background-color var(--transition-duration), box-shadow var(--transition-duration), transform var(--transition-duration);
+            font-weight: 700;
+            margin-bottom: 0; 
+            transition: all var(--transition-duration);
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px var(--shadow-color-light);
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .primary-cta {
@@ -202,45 +278,23 @@
             color: #fff;
         }
 
-        .primary-cta:hover:not(.disabled) {
-            background-color: #0069d9;
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-            transform: translateY(-1px);
+        .primary-cta:hover {
+            background-color: #007A6D; /* Slightly darker teal */
+            box-shadow: 0 6px 15px rgba(0, 137, 123, 0.6);
+            transform: translateY(-2px);
         }
         
-        .secondary-cta {
-            background-color: #444;
-            color: #fff;
-        }
-
-        .secondary-cta:hover:not(.disabled) {
-            background-color: #555;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transform: translateY(-1px);
-        }
-        
-        .cta-button.disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            background-color: #333 !important;
-            box-shadow: none;
-        }
-
-        .coming-soon {
-            font-size: 0.8em;
-            color: var(--text-color-secondary);
-            margin-top: -5px;
-            margin-bottom: 5px;
-            font-style: italic;
-            display: block;
-        }
-
         .highlight {
             font-weight: 700;
             color: var(--brand-color-highlight);
             text-transform: uppercase;
             font-size: 0.85em;
             margin-bottom: var(--spacing-sm);
+            padding: 5px 10px;
+            border: 1px solid var(--brand-color-highlight);
+            border-radius: 4px;
+            letter-spacing: 1px;
+            background-color: rgba(255, 215, 0, 0.1);
         }
 
         /* Support Section */
@@ -248,96 +302,82 @@
             text-align: center;
             padding: var(--spacing-lg);
             background-color: var(--bg-color-primary);
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 15px rgba(0, 137, 123, 0.1);
+            transition: all var(--transition-duration);
         }
 
         .support-section h2 {
-            font-size: 1.5em;
+            font-size: 2em;
             margin-bottom: var(--spacing-sm);
             color: var(--brand-color-light);
+            font-weight: 800;
         }
         
-        /* New style for the main CTA in the Support section */
+        /* WhatsApp CTA (Main) */
         .whatsapp-link {
             background-color: var(--whatsapp-color);
             color: #fff;
-            padding: 14px 30px;
-            border-radius: var(--border-radius);
+            padding: 18px 40px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
-            transition: background-color var(--transition-duration), box-shadow var(--transition-duration), transform var(--transition-duration);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all var(--transition-duration);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             margin-top: var(--spacing-sm);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .whatsapp-link:hover {
             background-color: #1eaf53;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
-            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            transform: translateY(-2px);
         }
 
         /* Community Section */
         .community-section {
-            background-color: #111;
-            color: #fff;
+            background-color: var(--card-color); 
+            color: var(--text-color-primary);
             text-align: center;
             padding: var(--spacing-lg) var(--spacing-md);
             margin-top: var(--spacing-lg);
             border: 1px solid var(--brand-color-main);
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 137, 123, 0.3);
+            transition: all var(--transition-duration);
         }
-
-        .community-section h2 {
-            margin-top: 0;
-            font-size: 2em;
-            color: #fff;
-        }
-
-        .community-section p {
-            font-size: 1em;
-            margin-bottom: var(--spacing-md);
-            opacity: 0.85;
-        }
-
+        
         .community-section .cta-button {
-            background-color: var(--whatsapp-color);
-            color: #fff;
-            padding: 14px 30px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            display: inline-block;
-            margin-top: var(--spacing-sm);
-        }
-
-        .community-section .cta-button:hover {
-            background-color: #1eaf53;
-            box-shadow: 0 4px 8px rgba(37, 211, 102, 0.4);
-            transform: translateY(-1px);
+            /* Override the standard CTA padding for the WhatsApp link */
+            padding: 18px 40px;
         }
 
         /* Footer */
         .site-footer {
             text-align: center;
             padding: var(--spacing-md) 0;
-            border-top: 1px solid #333;
+            border-top: 1px solid var(--border-color);
             font-size: 0.85em;
             color: var(--text-color-secondary);
             background-color: var(--bg-color-primary);
+            transition: background-color var(--transition-duration);
         }
 
         .notification-bar {
             background-color: var(--brand-color-highlight);
             color: #000;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
-            font-weight: 600;
+            font-weight: 800;
             display: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--brand-color-highlight);
+            border-bottom: 3px solid #E6A500;
+            font-size: 1.1em;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -353,127 +393,107 @@
                 <a href="#packages">Data Packages</a>
                 <a href="#support">Support Center</a>
             </nav>
+            <div class="theme-toggle-container">
+                <button id="theme-toggle-btn" class="theme-toggle-button">Switch Theme</button>
+            </div>
         </div>
     </header>
 
     <main class="main-content">
         <section id="packages" class="packages-section container">
-            <h2 class="section-title">PREMIUM AIRTEL DATA PACKAGES</h2>
-            <p class="section-subtitle">Secure, High-Speed Connectivity with Personal File DM Access • Available in Kenya 🇰🇪</p>
+            <h2 class="section-title">PREMIUM AIRTEL DATA ACCESS PLANS</h2>
+            <p class="section-subtitle">Secure, High-Speed Connectivity for the Kenyan Market 🇰🇪. Simple M-Pesa Payment via Paystack Integration.</p>
             <div class="package-grid">
                 
                 <article class="package-card">
                     <h3>1 WEEK</h3>
-                    <div class="price">100 KSH</div>
+                    <div class="price">KSH 100</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>7 Days Validity</li>
+                        <li>7 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
-                        <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20WEEK%20package%20for%20100KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>2 WEEKS</h3>
-                    <div class="price">180 KSH</div>
+                    <div class="price">KSH 180</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>14 Days Validity</li>
+                        <li>14 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
-                        <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20WEEKS%20package%20for%20180KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>3 WEEKS</h3>
-                    <div class="price">250 KSH</div>
+                    <div class="price">KSH 250</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>21 Days Validity</li>
+                        <li>21 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
-                        <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%203%20WEEKS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>25 DAYS</h3>
-                    <div class="price">250 KSH</div>
+                    <div class="price">KSH 250</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>25 Days Validity</li>
+                        <li>25 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
                     <div class="buy-buttons">
-                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
-                        <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%2025%20DAYS%20package%20for%20250KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>1 MONTH</h3>
-                    <div class="price">300 KSH</div>
+                    <div class="price">KSH 300</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>30 Days Validity</li>
+                        <li>30 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
-                    <p class="highlight">MOST POPULAR</p>
+                    <p class="highlight">MOST POPULAR CHOICE</p>
                     <div class="buy-buttons">
-                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Pay via M-Pesa</a>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%201%20MONTH%20package%20for%20300KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
                 <article class="package-card">
                     <h3>2 MONTHS</h3>
-                    <div class="price">550 KSH</div>
+                    <div class="price">KSH 550</div>
                     <ul class="features-list">
                         <li>Unlimited Data Access</li>
-                        <li>60 Days Validity</li>
+                        <li>60 Days Validity Period</li>
                         <li>High-Speed Bandwidth</li>
                         <li>Secure Connection Protocol</li>
                         <li>Dedicated File DM Support</li>
                     </ul>
-                    <p class="highlight">BEST VALUE</p>
+                    <p class="highlight">MAXIMUM VALUE</p>
                     <div class="buy-buttons">
-                        <a href="#" class="cta-button primary-cta disabled">Pay via M-Pesa</a>
-                        <span class="coming-soon">Coming Soon</span>
-                        <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20purchase%20the%202%20MONTHS%20package%20for%20550KSH." class="cta-button primary-cta">Purchase via WhatsApp</a>
-                        <a href="#" class="cta-button secondary-cta disabled">Pay with Card / Stripe</a>
-                        <span class="coming-soon">Coming Soon</span>
+                        <a href="https://paystack.shop/pay/4uqgih810w" class="cta-button primary-cta">Proceed to M-Pesa Payment</a>
                     </div>
                 </article>
 
@@ -481,7 +501,7 @@
         </section>
 
         <section id="support" class="support-section container">
-            <h2>Dedicated Support</h2>
+            <h2>Dedicated Support Center</h2>
             <p>Our support team is available 24/7. Reach out for assistance with purchases, setup, or technical issues.</p>
             <a href="https://wa.me/254748340864?text=Hello%20TOOSII%20KE%20NET.%20I%20would%20like%20to%20inquire%20about%20your%20Airtel%20data%20packages%20or%20need%20technical%20support." class="whatsapp-link" target="_blank">
                 Contact Technical Support on WhatsApp
@@ -490,9 +510,9 @@
 
         <section class="community-section">
             <div class="container">
-                <h2 class="section-title">Join Our Community</h2>
-                <p>Be the first to know about new package releases, exclusive offers, and important service updates by joining our official WhatsApp group.</p>
-                <a href="https://chat.whatsapp.com/Jg2hIgzmr41HpMUoYhDXOj" target="_blank" class="cta-button">Join WhatsApp Group</a>
+                <h2 class="section-title">Join Our Official Community</h2>
+                <p>Stay updated on new releases, exclusive member offers, and essential service updates by joining our official WhatsApp group.</p>
+                <a href="https://chat.whatsapp.com/Jg2hIgzmr41HpMUoYhDXOj" target="_blank" class="cta-button whatsapp-link">Join WhatsApp Group</a>
             </div>
         </section>
     </main>
@@ -506,13 +526,42 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const notificationBar = document.getElementById('notification-bar');
-             // Notification message updated to remove Paystack reference
-            const message = "🔔 IMPORTANT: Automated M-Pesa payment is currently available for the 1 MONTH package. All other packages require 'Purchase via WhatsApp'.";
+            const message = "🔔 ANNOUNCEMENT: Automated M-Pesa payment is now fully operational for all data packages. Kindly verify the price on the payment portal.";
 
             if (message) {
                 notificationBar.textContent = message;
                 notificationBar.style.display = 'block';
             }
+
+            // --- Theme Toggle Logic ---
+            const toggleButton = document.getElementById('theme-toggle-btn');
+            const body = document.body;
+            const savedTheme = localStorage.getItem('theme');
+
+            // 1. Apply saved theme on load
+            if (savedTheme === 'light') {
+                body.classList.add('light-theme');
+                toggleButton.textContent = 'Switch to Dark';
+            } else {
+                // Default to dark theme if no preference or preference is 'dark'
+                body.classList.remove('light-theme');
+                toggleButton.textContent = 'Switch to Light';
+            }
+
+            // 2. Handle button click
+            toggleButton.addEventListener('click', () => {
+                if (body.classList.contains('light-theme')) {
+                    // Switch to Dark
+                    body.classList.remove('light-theme');
+                    localStorage.setItem('theme', 'dark');
+                    toggleButton.textContent = 'Switch to Light';
+                } else {
+                    // Switch to Light
+                    body.classList.add('light-theme');
+                    localStorage.setItem('theme', 'light');
+                    toggleButton.textContent = 'Switch to Dark';
+                }
+            });
         });
     </script>
 
